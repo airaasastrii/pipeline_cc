@@ -1,1 +1,1 @@
-jidan ganteng
+anjay
