@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analitik & Metrik - Creator Content Pipeline Tracker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            400: '#f472b6',
+                            600: '#db2777',
+                        },
+                        pastelBlue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            400: '#60a5fa',
+                            600: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Kustomisasi Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbcfe8;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6;
+        }
+
+        /* Efek Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pastelPink-50 to-pastelBlue-50 min-h-screen font-sans text-slate-700">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white/80 backdrop-blur-md border-r border-pastelPink-100 flex flex-col justify-between hidden md:flex">
+            <div>
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3 px-6 py-5 border-b border-pastelPink-100">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pastelPink-400 to-pastelBlue-400 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-clapperboard text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-800 text-base">ContentTracker</h1>
+                        <p class="text-xs text-slate-400">Pipeline & Production</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="px-4 py-6 space-y-1">
+                    <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-columns w-5"></i> Pipeline Kanban
+                    </a>
+                    <a href="channels.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-video w-5"></i> Channels Sosial
+                    </a>
+                    <a href="analytics.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-pastelPink-100 to-pastelBlue-100 text-pastelPink-600 shadow-sm">
+                        <i class="fa-solid fa-chart-line w-5"></i> Analitik & Metrik
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-gear w-5"></i> Pengaturan
+                    </a>
+                </nav>
+            </div>
+
+            <!-- User Profile Footer -->
+            <div class="p-4 border-t border-pastelPink-100">
+                <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-pastelBlue-50/50">
+                    <img src="https://ui-avatars.com/api/?name=Daffa+Salsabila&background=f472b6&color=fff" class="w-9 h-9 rounded-full shadow" alt="Avatar">
+                    <div class="overflow-hidden">
+                        <p class="text-sm font-semibold text-slate-700 truncate">Daffa Salsabila</p>
+                        <p class="text-xs text-pastelBlue-600 truncate">Creator Account</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOP NAVBAR -->
+            <header class="h-16 bg-white/70 backdrop-blur-md border-b border-pastelPink-100 flex items-center justify-between px-6 z-10">
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden text-slate-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <h2 class="text-lg font-bold text-slate-800">Analitik & Performa Konten</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="bg-gradient-to-r from-pastelPink-400 to-pastelBlue-400 text-white px-4 py-2 rounded-xl text-sm font-medium shadow-md hover:opacity-95 transition flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Catat Metrik Baru
+                    </button>
+                </div>
+            </header>
+
+            <!-- ANALYTICS MAIN CONTAINER -->
+            <main class="flex-1 overflow-y-auto p-6 space-y-6">
+                
+                <!-- Stat Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Total Views -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Tayangan</span>
+                            <div class="w-8 h-8 rounded-lg bg-pastelBlue-50 text-pastelBlue-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">128.450</h3>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">
+                            <i class="fa-solid fa-arrow-trend-up mr-1"></i> +14.2% bulan ini
+                        </p>
+                    </div>
+
+                    <!-- Total Likes -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Suka (Likes)</span>
+                            <div class="w-8 h-8 rounded-lg bg-pastelPink-50 text-pastelPink-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">14.200</h3>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">
+                            <i class="fa-solid fa-arrow-trend-up mr-1"></i> +8.1% bulan ini
+                        </p>
+                    </div>
+
+                    <!-- Total Comments -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Komentar</span>
+                            <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-comment"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">1.840</h3>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">
+                            <i class="fa-solid fa-arrow-trend-up mr-1"></i> +5.4% bulan ini
+                        </p>
+                    </div>
+
+                    <!-- Total Shares -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Dibagikan (Shares)</span>
+                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">920</h3>
+                        <p class="text-xs text-emerald-600 font-semibold mt-1">
+                            <i class="fa-solid fa-arrow-trend-up mr-1"></i> +12.3% bulan ini
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Performance Table Section -->
+                <div class="bg-white rounded-2xl border border-pastelPink-100 shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-pastelPink-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <div>
+                            <h3 class="font-bold text-base text-slate-800">Log Riwayat Performa Konten</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">Snapshot metrik berkala dari konten yang sudah dipublikasikan.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <input type="date" class="px-3 py-1.5 bg-pastelPink-50 border border-pastelPink-200 rounded-xl text-xs text-slate-600 focus:outline-none focus:ring-2 focus:ring-pastelPink-400">
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-pastelPink-50/50 text-slate-400 text-[11px] font-bold uppercase tracking-wider border-b border-pastelPink-100">
+                                    <th class="py-3 px-5">Judul Konten</th>
+                                    <th class="py-3 px-5">Platform</th>
+                                    <th class="py-3 px-5">Tanggal Rekam</th>
+                                    <th class="py-3 px-5 text-right">Views</th>
+                                    <th class="py-3 px-5 text-right">Likes</th>
+                                    <th class="py-3 px-5 text-right">Comments</th>
+                                    <th class="py-3 px-5 text-right">Shares</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-xs text-slate-600">
+                                <tr class="hover:bg-pastelPink-50/30 transition">
+                                    <td class="py-3.5 px-5 font-semibold text-slate-800">Vlog: Setup Coding Minimalis</td>
+                                    <td class="py-3.5 px-5"><span class="bg-blue-100 text-blue-600 font-bold px-2 py-0.5 rounded-md text-[10px]">YouTube</span></td>
+                                    <td class="py-3.5 px-5 text-slate-400">14 Okt 2026</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">45.200</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">4.100</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">520</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">310</td>
+                                </tr>
+                                <tr class="hover:bg-pastelPink-50/30 transition">
+                                    <td class="py-3.5 px-5 font-semibold text-slate-800">Tips Belajar React & Tailwind untuk Pemula</td>
+                                    <td class="py-3.5 px-5"><span class="bg-blue-100 text-blue-600 font-bold px-2 py-0.5 rounded-md text-[10px]">YouTube</span></td>
+                                    <td class="py-3.5 px-5 text-slate-400">12 Okt 2026</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">38.900</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">3.850</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">410</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">240</td>
+                                </tr>
+                                <tr class="hover:bg-pastelPink-50/30 transition">
+                                    <td class="py-3.5 px-5 font-semibold text-slate-800">Review Setup Keyboard Mechanical Pastel</td>
+                                    <td class="py-3.5 px-5"><span class="bg-pink-100 text-pink-600 font-bold px-2 py-0.5 rounded-md text-[10px]">TikTok</span></td>
+                                    <td class="py-3.5 px-5 text-slate-400">10 Okt 2026</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">44.350</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">6.250</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">910</td>
+                                    <td class="py-3.5 px-5 text-right font-medium text-slate-800">370</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

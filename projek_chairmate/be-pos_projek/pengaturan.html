@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan - Creator Content Pipeline Tracker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            400: '#f472b6',
+                            600: '#db2777',
+                        },
+                        pastelBlue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            400: '#60a5fa',
+                            600: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Kustomisasi Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbcfe8;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6;
+        }
+
+        /* Efek Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pastelPink-50 to-pastelBlue-50 min-h-screen font-sans text-slate-700">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white/80 backdrop-blur-md border-r border-pastelPink-100 flex flex-col justify-between hidden md:flex">
+            <div>
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3 px-6 py-5 border-b border-pastelPink-100">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pastelPink-400 to-pastelBlue-400 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-clapperboard text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-800 text-base">ContentTracker</h1>
+                        <p class="text-xs text-slate-400">Pipeline & Production</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="px-4 py-6 space-y-1">
+                    <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-columns w-5"></i> Pipeline Kanban
+                    </a>
+                    <a href="channels.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-video w-5"></i> Channels Sosial
+                    </a>
+                    <a href="analytics.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-chart-line w-5"></i> Analitik & Metrik
+                    </a>
+                    <a href="settings.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-pastelPink-100 to-pastelBlue-100 text-pastelPink-600 shadow-sm">
+                        <i class="fa-solid fa-gear w-5"></i> Pengaturan
+                    </a>
+                </nav>
+            </div>
+
+            <!-- User Profile Footer -->
+            <div class="p-4 border-t border-pastelPink-100">
+                <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-pastelBlue-50/50">
+                    <img src="https://ui-avatars.com/api/?name=Daffa+Salsabila&background=f472b6&color=fff" class="w-9 h-9 rounded-full shadow" alt="Avatar">
+                    <div class="overflow-hidden">
+                        <p class="text-sm font-semibold text-slate-700 truncate">Daffa Salsabila</p>
+                        <p class="text-xs text-pastelBlue-600 truncate">Creator Account</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOP NAVBAR -->
+            <header class="h-16 bg-white/70 backdrop-blur-md border-b border-pastelPink-100 flex items-center justify-between px-6 z-10">
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden text-slate-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <h2 class="text-lg font-bold text-slate-800">Pengaturan Akun & Sistem</h2>
+                </div>
+            </header>
+
+            <!-- SETTINGS MAIN CONTAINER -->
+            <main class="flex-1 overflow-y-auto p-6 space-y-6 max-w-4xl">
+                
+                <!-- Profile Settings Card -->
+                <div class="bg-white p-6 rounded-2xl border border-pastelPink-100 shadow-sm space-y-6">
+                    <div class="border-b border-pastelPink-100 pb-4">
+                        <h3 class="font-bold text-base text-slate-800">Informasi Profil</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Perbarui informasi akun dan preferensi identitas kreator Anda.</p>
+                    </div>
+
+                    <form onsubmit="event.preventDefault();" class="space-y-4">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=Daffa+Salsabila&background=f472b6&color=fff" class="w-16 h-16 rounded-full shadow-md" alt="Avatar">
+                            <div>
+                                <button type="button" class="px-4 py-2 bg-pastelPink-50 text-pastelPink-600 border border-pastelPink-200 rounded-xl text-xs font-semibold hover:bg-pastelPink-100 transition">
+                                    <i class="fa-solid fa-camera mr-1"></i> Unggah Foto Baru
+                                </button>
+                                <p class="text-[11px] text-slate-400 mt-1">Format JPG, PNG maks. 2MB.</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Lengkap</label>
+                                <input type="text" value="Daffa Salsabila" 
+                                    class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Alamat Email</label>
+                                <input type="email" value="daffa@creator.com" 
+                                    class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Peran Akun (Role)</label>
+                            <select class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition text-slate-700">
+                                <option value="creator" selected>Creator</option>
+                                <option value="editor">Editor</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="flex justify-end pt-2">
+                            <button type="submit" class="bg-gradient-to-r from-pastelPink-400 to-pastelBlue-400 text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md hover:opacity-95 transition">
+                                Simpan Perubahan Profil
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security / Password Settings Card -->
+                <div class="bg-white p-6 rounded-2xl border border-pastelPink-100 shadow-sm space-y-6">
+                    <div class="border-b border-pastelPink-100 pb-4">
+                        <h3 class="font-bold text-base text-slate-800">Keamanan & Kata Sandi</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Pastikan akun Anda menggunakan kata sandi yang aman.</p>
+                    </div>
+
+                    <form onsubmit="event.preventDefault();" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Kata Sandi Saat Ini</label>
+                            <input type="password" placeholder="••••••••" 
+                                class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Kata Sandi Baru</label>
+                                <input type="password" placeholder="Min. 8 karakter" 
+                                    class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Konfirmasi Kata Sandi Baru</label>
+                                <input type="password" placeholder="Ulangi kata sandi baru" 
+                                    class="w-full px-4 py-2.5 bg-white border border-pastelPink-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pastelPink-400 transition">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end pt-2">
+                            <button type="submit" class="bg-slate-800 text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md hover:opacity-90 transition">
+                                Perbarui Kata Sandi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

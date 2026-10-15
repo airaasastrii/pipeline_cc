@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channels Sosial - Creator Content Pipeline Tracker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            400: '#f472b6',
+                            600: '#db2777',
+                        },
+                        pastelBlue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            400: '#60a5fa',
+                            600: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Kustomisasi Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbcfe8;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6;
+        }
+
+        /* Efek Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pastelPink-50 to-pastelBlue-50 min-h-screen font-sans text-slate-700">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white/80 backdrop-blur-md border-r border-pastelPink-100 flex flex-col justify-between hidden md:flex">
+            <div>
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3 px-6 py-5 border-b border-pastelPink-100">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pastelPink-400 to-pastelBlue-400 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-clapperboard text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-800 text-base">ContentTracker</h1>
+                        <p class="text-xs text-slate-400">Pipeline & Production</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="px-4 py-6 space-y-1">
+                    <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-columns w-5"></i> Pipeline Kanban
+                    </a>
+                    <a href="channels.html" class="flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-pastelPink-100 to-pastelBlue-100 text-pastelPink-600 shadow-sm">
+                        <i class="fa-solid fa-video w-5"></i> Channels Sosial
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-chart-line w-5"></i> Analitik & Metrik
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 hover:bg-pastelPink-50 hover:text-pastelPink-600 rounded-xl transition">
+                        <i class="fa-solid fa-gear w-5"></i> Pengaturan
+                    </a>
+                </nav>
+            </div>
+
+            <!-- User Profile Footer -->
+            <div class="p-4 border-t border-pastelPink-100">
+                <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-pastelBlue-50/50">
+                    <img src="https://ui-avatars.com/api/?name=Daffa+Salsabila&background=f472b6&color=fff" class="w-9 h-9 rounded-full shadow" alt="Avatar">
+                    <div class="overflow-hidden">
+                        <p class="text-sm font-semibold text-slate-700 truncate">Daffa Salsabila</p>
+                        <p class="text-xs text-pastelBlue-600 truncate">Creator Account</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOP NAVBAR -->
+            <header class="h-16 bg-white/70 backdrop-blur-md border-b border-pastelPink-100 flex items-center justify-between px-6 z-10">
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden text-slate-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <h2 class="text-lg font-bold text-slate-800">Channels Sosial Media</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="bg-gradient-to-r from-pastelPink-400 to-pastelBlue-400 text-white px-4 py-2 rounded-xl text-sm font-medium shadow-md hover:opacity-95 transition flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Tambah Channel
+                    </button>
+                </div>
+            </header>
+
+            <!-- CHANNELS MAIN CONTAINER -->
+            <main class="flex-1 overflow-y-auto p-6 space-y-6">
+                
+                <!-- Section Summary Header -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white/60 backdrop-blur-sm p-5 rounded-2xl border border-pastelPink-100 shadow-sm">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-800">Manajemen Saluran</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Daftar platform dan akun sosial media yang terhubung untuk publikasi konten.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="bg-pastelPink-50 px-4 py-2 rounded-xl border border-pastelPink-100 text-center">
+                            <span class="block text-xs text-slate-400">Total Saluran</span>
+                            <span class="text-base font-bold text-pastelPink-600">4 Channel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Channel Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    
+                    <!-- YouTube Channel -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">Aktif</span>
+                        </div>
+                        <h4 class="font-bold text-base text-slate-800">Tech & Code ID</h4>
+                        <p class="text-xs text-slate-400 font-medium mb-4">@techcode_id</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                            <span class="text-slate-500">Platform: <strong>YouTube</strong></span>
+                            <button class="text-slate-400 hover:text-pastelPink-600 transition"><i class="fa-solid fa-ellipsis"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- TikTok Channel -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">Aktif</span>
+                        </div>
+                        <h4 class="font-bold text-base text-slate-800">Daffa Setup Tips</h4>
+                        <p class="text-xs text-slate-400 font-medium mb-4">@daffasetup</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                            <span class="text-slate-500">Platform: <strong>TikTok</strong></span>
+                            <button class="text-slate-400 hover:text-pastelPink-600 transition"><i class="fa-solid fa-ellipsis"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Channel -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">Aktif</span>
+                        </div>
+                        <h4 class="font-bold text-base text-slate-800">UI/UX Design Journal</h4>
+                        <p class="text-xs text-slate-400 font-medium mb-4">@uiux_journal</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                            <span class="text-slate-500">Platform: <strong>Instagram</strong></span>
+                            <button class="text-slate-400 hover:text-pastelPink-600 transition"><i class="fa-solid fa-ellipsis"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Channel -->
+                    <div class="bg-white p-5 rounded-2xl border border-pastelPink-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">Aktif</span>
+                        </div>
+                        <h4 class="font-bold text-base text-slate-800">Daffa Salsabila</h4>
+                        <p class="text-xs text-slate-400 font-medium mb-4">linkedin.com/in/daffa</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                            <span class="text-slate-500">Platform: <strong>LinkedIn</strong></span>
+                            <button class="text-slate-400 hover:text-pastelPink-600 transition"><i class="fa-solid fa-ellipsis"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
