@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kustomisasi Scrollbar untuk Tampilan Kanban yang Elegan */
+
+
+/* Kustomisasi Scrollbar untuk Tampilan Elegan */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -22,9 +24,17 @@
     background: #f472b6;
 }
 
-/* Efek Glassmorphism Tambahan */
+/* Efek Glassmorphism untuk Card Auth & Dashboard */
 .glass-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Styling Tambahan Khusus Halaman Login / Auth */
+.auth-input-focus:focus {
+    outline: none;
+    ring-width: 2px;
+    ring-color: #f472b6;
+    background-color: rgba(255, 255, 255, 1);
 }
