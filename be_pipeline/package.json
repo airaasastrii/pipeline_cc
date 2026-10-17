@@ -1,6 +1,19 @@
+
 {
+  "name": "be_pipeline",
+  "version": "1.0.0",
+  "description": "Backend Chairmate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "express": "^5.3.0"
   }
 }
+
